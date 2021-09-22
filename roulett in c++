@@ -1,0 +1,147 @@
+//#include "stdafx.h"
+#include <iostream>
+#include <ctime>
+#include <cmath>
+using namespace std;
+//start
+int start = 1000;
+int bet = 0;
+int siffra = 0;
+int farg = 0;
+int vinst2 = bet * 2;
+int vinst3 = bet * 3;
+int vinst10 = bet * 10;
+int vinst0 = 0;
+int val = 0;
+int main() {
+	cout << "Roulett" << bet << endl;
+	cout << start << endl;
+	//beta
+
+	while (true)
+	{
+		cout << "hur mycket vill du beta?" << endl;
+		cin >> bet;
+		if (bet == 100) {
+			cout << "du kan beta";
+			break;
+		}
+		else if (bet == 200) {
+			cout << "du kan beta";
+			break;
+		}
+		else if (bet == 500) {
+			cout << "du kan beta";
+			break;
+		}
+		else
+		{
+			cout << "du kan inte beta";
+		}
+	}
+
+	// välja siffra
+
+	//Siffra ELLER färg
+	//1 siffra 2 för färg
+
+	cout << "siffra (1) eller (2) farg?";
+	cin >> val;
+	while (true)
+		if (val == 1)
+		{
+
+			cout << "vilken siffra vill du satsa på?" << siffra << endl;//siffra > 0 && siffra < 37
+			cin >> siffra;
+			cout << siffra;
+			break;
+			if (siffra > 0 && siffra < 37) {
+				cout << "siffra går att använda";
+				break;
+			}
+			else
+				cout << "sifra går inte använda";
+			break;
+
+			// else if för 2
+
+
+		}
+
+
+		else if (val == 2) {
+			while (true)
+			{
+				cout << "Vilken färg?" << endl;
+				cout << "1 = svart 2 = Rött" << endl;
+				cin >> farg;
+				cout << farg;
+				//if sats som kollat om farg är 1 eller 2
+				//om sant då breakar du
+				//om inte sant så får spelaren skriva in igen
+				if (farg == 1 || farg == 2) {
+					cout << farg;
+					break;
+				}
+				else
+				{
+					cout << "prova igen";
+					break;
+				}
+			}
+			break;
+		}
+		cout << start << endl;
+		//random numer 
+		srand(time(0));
+		int roll;
+		int rand1 = rand() % 36 + 1;
+		cout << "random number" << rand1;
+		while(true)
+    // färg vinst eller förlust
+			if (rand1 % 2 == 0)
+			{
+				//cout << "random färg" << farg << endl;
+				//cout << "tal är svart vid ojämna tal" << endl;
+				cout << "svart";
+				if (farg == 1);
+				cout << "grattis du vann";
+				cout << bet * 2 << endl;
+				cout << start * bet << endl;
+				
+				break;
+			}
+			else
+			{
+				//cout << "tal är rött vid jämna tal";
+				cout << "rött" << endl;
+				if (farg == 2);
+				cout << "grattis du har vunnit";
+				cout << bet * 3 << endl;
+				cout << start * bet << endl;
+				break;
+			}
+          //vinst nummer
+		 while (true)
+		    if (siffra == rand1){
+				cout <<"grattis du har vunnit";
+				cout << bet * 10 << endl;
+				cout << start * bet << endl;
+				break;
+		    }
+			  else
+			  {
+			  cout <<"du har förlorat";
+			  cout << bet - bet << endl;
+        cout << start - bet << endl;
+		    break;
+			  }
+			if (start == 0)
+      cout << "spelet är slut"<< endl;		
+			
+    	//system ("pause");
+      //cin >> start;
+      
+			return main();
+      
+      }
